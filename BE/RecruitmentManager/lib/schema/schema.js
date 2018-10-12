@@ -39,6 +39,23 @@ exports.registerStudentSchema = {
 			"maxLength": 24
 		}
 	},
-	   "additionalProperties": false,
-	   "minProperties": 9
+	"additionalProperties": false,
+	"minProperties": 9
+};
+
+exports.loginSchemaSchema = {
+	"type": "object",
+	"properties": {
+		"email": {
+			"type": "string",
+			"format": "email"
+		},
+		"password": {
+			"type": "string",
+			"minLength": 8,
+			"maxLength": 24
+		}
+	},
+	"additionalProperties": false,
+	"minProperties": 2
 };

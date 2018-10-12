@@ -16,3 +16,17 @@ exports.validateRegisterStudentSchema = function (requestBody, callback) {
 		return;
 	}
 }
+
+exports.validateLoginSchema = function (requestBody, callback) {
+	var schema = userSchema.loginSchemaSchema;
+	var validate = ajv.compile(schema);
+	var valid = validate(requestBody);
+	if (valid) {
+		callback(null, true);
+		return;
+	}
+	else {
+		callback(true, true);
+		return;
+	}
+}
