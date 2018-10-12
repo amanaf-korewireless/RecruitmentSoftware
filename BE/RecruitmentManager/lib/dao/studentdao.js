@@ -1,6 +1,6 @@
 
 var config = require('../config/serverConfig.json');
-
+var bcrypt = require('bcrypt');
 
 
 function hashPassword(studentData, callback) {
