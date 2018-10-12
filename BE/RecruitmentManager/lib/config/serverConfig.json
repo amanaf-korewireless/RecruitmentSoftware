@@ -1,3 +1,9 @@
 {
-    
+    "bcrypt": {
+        "saltWorkFactor": 1
+      },
+      "jwt": {
+        "secret": "gadgeonRecruitmentDrive",
+        "algorithm": "HS256"
+      }
 }
