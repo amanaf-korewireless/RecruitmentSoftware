@@ -80,8 +80,8 @@ router.get('/adminprovider/', function (req, res, next) {
       return;
     }
     reply.forEach(element => {
-      delete reply.password;
-      delete reply.token;
+      delete element.password;
+      delete element.token;
     });
     res.status(200).send({ "succuss": true, "data": reply })
     return;
