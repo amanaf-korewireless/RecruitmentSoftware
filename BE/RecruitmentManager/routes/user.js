@@ -53,7 +53,7 @@ router.get('/result/:email/:token', function (req, res, next) {
     }
     else {
       console.log("request body validation completed");
-      userDao.validateAuthToken(req.body, function (err, reply) {
+      userDao.validateAuthToken(userData, function (err, reply) {
         if (err) {
           res.status(400).send({ "errorMessage": "Server error", "errorCode": "ER002" })
           return;

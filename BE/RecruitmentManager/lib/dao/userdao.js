@@ -101,3 +101,26 @@ exports.updateToken = function (studentData, callback) {
         });
     });
 }
+
+exports.validateAuthToken = function (studentData, callback) {
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/";
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            callback(true, err);
+            return;
+        }
+        console.log("mongo connection ok");
+        var dbo = db.db("RecruitmentManager");
+        dbo.collection("user").findOne({ email: studentData.email, token: studentData.token }, function (err, result) {
+            if (err) {
+                callback(true, err);
+                return;
+            }
+            console.log(result);
+            db.close();
+            callback(null, result);
+            return;
+        });
+    });
+}
