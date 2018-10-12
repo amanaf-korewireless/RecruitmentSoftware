@@ -1,0 +1,19 @@
+<div class="sidebar-wrapper">
+    <div class="nav-container">
+        <ul class="nav">
+            <li>
+                <p style="color: white;font-size: 15px;font-weight: 500;padding: 20%;">
+                    Gadgeon
+                </p>
+            </li>
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} navbar-collapse" >
+                <a [routerLink]="[menuItem.path]" *ngIf="menuItem.iconFlag">
+                    <br *ngIf="menuItem.iconFlag">
+                    <i class="material-icons" *ngIf="menuItem.iconFlag">{{menuItem.icon}}</i>
+                    <br *ngIf="menuItem.iconFlag">
+                    <p style="margin-top:2px;margin-bottom: 2px;font-size: 100%" *ngIf="menuItem.iconFlag">{{menuItem.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

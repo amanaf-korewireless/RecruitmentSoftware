@@ -638,7 +638,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"sidebar-wrapper\">\r\n    <div class=\"nav-container\">\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <p style=\"color: white;font-size: 15px;font-weight: 500;padding: 20%;\">\r\n                    Gadgeon\r\n                </p>\r\n            </li>\r\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}} navbar-collapse\" >\r\n                <a [routerLink]=\"[menuItem.path]\" *ngIf=\"menuItem.iconFlag\">\r\n                    <i class=\"material-icons\" *ngIf=\"menuItem.iconFlag\">{{menuItem.icon}}</i>\r\n                    <br *ngIf=\"menuItem.iconFlag\">\r\n                    <p style=\"margin-top:2px;margin-bottom: 2px\" *ngIf=\"menuItem.iconFlag\">{{menuItem.title}}</p>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"sidebar-wrapper\">\r\n    <div class=\"nav-container\">\r\n        <ul class=\"nav\">\r\n            <li>\r\n                <p style=\"color: white;font-size: 15px;font-weight: 500;padding: 20%;\">\r\n                    Gadgeon\r\n                </p>\r\n            </li>\r\n            <li routerLinkActive=\"active\" *ngFor=\"let menuItem of menuItems\" class=\"{{menuItem.class}} navbar-collapse\" >\r\n                <a [routerLink]=\"[menuItem.path]\" *ngIf=\"menuItem.iconFlag\">\r\n                    <br *ngIf=\"menuItem.iconFlag\">\r\n                    <i class=\"material-icons\" *ngIf=\"menuItem.iconFlag\">{{menuItem.icon}}</i>\r\n                    <br *ngIf=\"menuItem.iconFlag\">\r\n                    <p style=\"margin-top:2px;margin-bottom: 2px;font-size: 100%\" *ngIf=\"menuItem.iconFlag\">{{menuItem.title}}</p>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -660,8 +660,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var ROUTES = [
-    { path: '/candidate-details', title: 'Candidate List', icon: 'settings', class: '', imageWhite: '', imageDull: '', iconFlag: true },
-    { path: '/user-profile', title: 'Register Candidate', icon: 'playlist_add', class: '', imageWhite: '', imageDull: '', iconFlag: localStorage.getItem("adminLoginGad") == "true" ? true : false }
+    { path: '/candidate-details', title: 'Home', icon: 'home', class: '', imageWhite: '', imageDull: '', iconFlag: true },
+    { path: '/user-profile', title: 'Register', icon: 'playlist_add', class: '', imageWhite: '', imageDull: '', iconFlag: localStorage.getItem("adminLoginGad") == "true" ? true : false }
 ];
 var SidebarComponent = (function () {
     function SidebarComponent() {
@@ -881,7 +881,7 @@ var FilterUtils = (function () {
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top:5%;margin-bottom:5%;margin-right:20%;margin-left:5%;overflow: hidden!important;\">\r\n    <section class=\"container\" style=\"background: white;height: 540px;width: 360px\">\r\n        <div>\r\n            <h2 style=\"color:#074D80!important;font-weight: 500;font-size: 200%!important\">\r\n                Gadgeon Smart Systems\r\n            </h2>\r\n        </div>\r\n        <div class=\"row\" style=\"margin-top:10%;margin-left:50px\">\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate style=\"margin-right: 50px\">\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required style=\"color:#074D80!important;font-weight: 500!important;font-size: 150%!important\"\r\n                    />\r\n                    <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n                </div>\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n                    <label for=\"password\">Password</label>\r\n                    <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required style=\"color:#074D80!important;font-weight: 600!important;font-size: 200%!important\"\r\n                    />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"loading\" class=\"btn btn-sm btn-github\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\">\r\n                        Sign In\r\n                    </button>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </section>\r\n</div>"
+module.exports = "<div class=\"container\" style=\"margin-top: 4% ;overflow: hidden!important;\">\r\n    <section class=\"container\" style=\"background: white;height: 540px;width: 360px\">\r\n        <div class=\"row\">\r\n            <h2 style=\"margin: 5%; color:#074D80!important;font-weight: 500;font-size: 200%!important\">\r\n                Gadgeon Smart Systems\r\n            </h2>\r\n        </div>\r\n        <div class=\"row\" style=\"margin:15%\">\r\n            <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\">\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required style=\"color:#074D80!important;font-weight: 500!important;font-size: 150%!important\"\r\n                    />\r\n                    <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n                </div>\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n                    <label for=\"password\">Password</label>\r\n                    <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required style=\"color:#074D80!important;font-weight: 600!important;font-size: 200%!important\"\r\n                    />\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"loading\" class=\"btn btn-sm btn-github\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\">\r\n                        Sign In\r\n                    </button>\r\n                    <button class=\"btn btn-sm btn-github navbar-right\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\" (click)=\"Register()\">\r\n                        Register\r\n                    </button>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </section>\r\n</div>"
 
 /***/ }),
 
@@ -923,6 +923,9 @@ var LoginComponent = (function () {
             this.router.navigateByUrl('/candidate-details');
         }
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    };
+    LoginComponent.prototype.Register = function () {
+        this.router.navigateByUrl('/user-profile');
     };
     LoginComponent.prototype.login = function () {
         var _this = this;

@@ -1,0 +1,158 @@
+<div class="main-content gadgeon-dashboard gadgeon-content">
+    <div class="row">
+        <div class="col-xs-8" style="margin:0px!important">
+            <h5>Gadgeon Home</h5>
+        </div>
+    </div>
+    <div class="row">
+        <section class="row gadgeon-widget">
+            <div class="panel panel-collapse ">
+                <header class="panel-heading">
+                    <label class="panel-title">Recruitment Details</label>
+                </header>
+                <section class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="row">
+                                <div class="text-center">
+                                    <p class="text-primary" style="color:#074D80">{{global.totalproduction}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-center">
+                                    <a href="#/candidate-details" class="text-gray">
+                                        <label>Selected</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="row">
+                                <div class="text-center">
+                                    <p class="text-primary" style="color:#F6AE2C">{{global.totalStorage}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-center">
+                                    <a href="#/candidate-details" class="text-gray ">
+                                        <label>Pending</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="row">
+                                <div class="text-center">
+                                    <p class="text-primary" style="color:#86BBD8">{{global.totalRepair}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-center">
+                                    <a href="/#/candidate-details" class="text-gray ">
+                                        <label>Rejected</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-3">
+                            <div class="row">
+                                <div class="text-center">
+                                    <p class="text-primary" style="color:#F2641A">{{global.totalMissing}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-center">
+                                    <a href="#/candidate-details" class="text-gray ">
+                                        <label>Kore Pending</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="row">
+                                <div class="text-center">
+                                    <p class="text-primary" style="color:#429EA6">{{global.totalunassigned}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="text-center">
+                                    <a href="#/candidate-details" class="text-gray ">
+                                        <label>Kore Accepted</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="global.totalCount > 0">
+                        <div class="row" style="width: 96%;margin: 2%;height: 2vh;">
+                            <div class="progress-bar" role="progressbar" style="background:#074D80;" [ngStyle]="{width: global.prodPercent}">
+                            </div>
+                            <div class="progress-bar" role="progressbar" style="background: #F6AE2C" [ngStyle]="{width: global.storePercent}">
+                            </div>
+                            <div class="progress-bar" role="progressbar" style="background:#86BBD8" [ngStyle]="{width: global.repPercent}">
+                            </div>
+                            <div class="progress-bar" role="progressbar" style="background:#F2641A" [ngStyle]="{width: global.missingPercent}">
+                            </div>
+                            <div class="progress-bar" role="progressbar" style="background: #429EA6" [ngStyle]="{width: global.unUsPercent}">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <section class="row gadgeon-widget" style="margin:0px!important">
+                <div class="panel panel-collapse">
+                    <header class="panel-heading">
+                        <label class="panel-title">Candidate Details Overview Gadgeon</label>
+                    </header>
+                    <section class="panel-body gadgeon-section">
+                        <div class="row" style="margin-left:7%">
+                            <div class="col-xs-6">
+                                <app-circular-progress [title]="'05'" [subtitle]="'vendors'"></app-circular-progress>
+                            </div>
+                            <div class="col-xs-6">
+                                <svg width="100%" height="15%">
+                                    <rect x="1vw" y="2vh" width="2vw" height="2vw" style="fill:#074D80;stroke:#074D80;stroke-width:2;" />
+                                    <rect x="1vw" y="10vh" width="2vw" height="2vw" style="fill:#D83F45;stroke:#D83F45;stroke-width:2;" />
+                                    <text x="5vw" y="4.5vh" font-family="Roboto" font-size="1vw" fill="gray">Selected</text>
+                                    <text x="5vw" y="12.5vh" font-family="Roboto" font-size="1vw" fill="gray">Pending</text>
+                                </svg>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+        <section class="col-xs-4 gadgeon-widget" style="margin:0px!important">
+            <div class="panel panel-collapse">
+                <header class="panel-heading">
+                    <label class="panel-title">Candidate Details Overview Kore</label>
+                </header>
+                <div class="row">
+                    <section class="panel-body text-center gadgeon-section" id="DivDailyRTUsageChart">
+                        <app-circular-progress [title]="'14'" [subtitle]="'parts'"></app-circular-progress>
+                    </section>
+                </div>
+                <div class="row" style="margin-left:5vw">
+                    <svg width="100%" height="15%">
+                        <rect x="1vw" y="2vh" width="2vw" height="2vw" style="fill:#074D80;stroke:#074D80;stroke-width:2;" />
+                        <rect x="1vw" y="10vh" width="2vw" height="2vw" style="fill:#D83F45;stroke:#D83F45;stroke-width:2;" />
+                        <text x="5vw" y="4.5vh" font-family="Roboto" font-size="1vw" fill="gray">Selected</text>
+                        <text x="5vw" y="12.5vh" font-family="Roboto" font-size="1vw" fill="gray">Pending</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

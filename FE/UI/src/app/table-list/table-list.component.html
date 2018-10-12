@@ -1,0 +1,43 @@
+<div *ngIf="IsadminLogin;else candidate">
+    <div class="main-content gadgeon-content">
+        <div class="row">
+            <div class="col-xs-9">
+                <h5>Candidate List</h5>
+            </div>
+        </div>
+        <div class="section table-section">
+            <div class="row">
+                <div id="searchprod" class="collapse searchbar2">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <input class="col-xs-12" type="search" id="prodtoolId">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="col-xs-12" type="search" id="prodpartnumber">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="col-xs-12" type="search" id="prodnodeId">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="col-xs-12" type="search" id="prodStatus">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="col-xs-12" type="search" id="prodvendorName">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="col-xs-12" type="date" id="prodDate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row atollsearchrow">
+                <button type="button" class="btn btn-sm atollbutton" data-toggle="collapse" data-target="#searchprod">Search</button>
+            </div>
+            <div class="container">
+                <app-candidate-element *ngFor="let item of candidateList" [candElement]="item">
+                </app-candidate-element>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #candidate>content here...</ng-template>
