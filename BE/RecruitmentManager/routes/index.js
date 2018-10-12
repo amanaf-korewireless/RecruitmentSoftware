@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userDao = require('../lib/dao/userdao.js');
-
+var validator =require('../lib/validator/schemaValidator.js');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
