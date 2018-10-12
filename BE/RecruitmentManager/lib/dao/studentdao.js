@@ -35,15 +35,14 @@ exports.isAllreadyExist = function (studentData, callback) {
         }
         console.log("mongo connection ok");
         var dbo = db.db("RecruitmentManager");
-        var query = { email: studentData.email };
-        dbo.collection("student").find(query).toArray(function (err, result) {
+        dbo.collection("student").findOne({ email: studentData.email }, function (err, result) {
             if (err) {
                 callback(true, err);
                 return;
             }
             console.log(result);
             var rv = false;
-            if (result.length == 0)
+            if (result)
                 rv = true;
             db.close();
             callback(null, rv);
