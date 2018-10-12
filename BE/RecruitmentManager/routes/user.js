@@ -71,4 +71,21 @@ router.get('/result/:email/:token', function (req, res, next) {
   });
 });
 
+
+/* view all student details  */
+router.get('/adminprovider/', function (req, res, next) {
+  userDao.getAllDetails(req, function (err, reply) {
+    if (err) {
+      res.status(400).send({ "errorMessage": "Server error", "errorCode": "ER002" })
+      return;
+    }
+    reply.forEach(element => {
+      delete reply.password;
+      delete reply.token;
+    });
+    res.status(200).send({ "succuss": true, "data": reply })
+    return;
+  });
+});
+
 module.exports = router;
