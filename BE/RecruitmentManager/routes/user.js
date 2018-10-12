@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var validator =require('../lib/validator/schemaValidator.js');
-var studentDao=require('../lib/dao/studentdao.js');
+var userDao=require('../lib/dao/userdao.js');
 
 /* Register new student  */
 router.post('/', function(req, res, next) {
@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
         }
         else {
           console.log("request body validation completed");
-          studentDao.isAllreadyExist(req.body,function(err,reply){
+          userDao.isAllreadyExist(req.body,function(err,reply){
             if(err)
             {
               res.status(400).send({ "errorMessage": "Server error" ,"errorCode": "ER002" })
@@ -25,13 +25,13 @@ router.post('/', function(req, res, next) {
               res.status(400).send({ "errorMessage": "Email already exist" ,"errorCode": "ER003" })
               return;
             }
-            studentDao.insert(req.body,function(err,reply){
+            userDao.insert(req.body,function(err,reply){
               if(err)
               {
                 res.status(400).send({ "errorMessage": "Server error" ,"errorCode": "ER002" })
                 return;
               }
-              console.log("student registration completed succussfully");
+              console.log("user registration completed succussfully");
               res.status(200).send({ "succuss":true,"msg": "student registration completed succussfully" })
               return;
             });
