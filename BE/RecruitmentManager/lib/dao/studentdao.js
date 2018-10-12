@@ -42,8 +42,11 @@ exports.isAllreadyExist = function (studentData, callback) {
                 return;
             }
             console.log(result);
+            var rv = false;
+            if (result.length == 0)
+                rv = true;
             db.close();
-            callback(null, false);
+            callback(null, rv);
             return;
         });
     });
