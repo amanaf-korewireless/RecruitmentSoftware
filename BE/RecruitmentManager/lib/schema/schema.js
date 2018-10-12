@@ -59,3 +59,19 @@ exports.loginSchemaSchema = {
 	"additionalProperties": false,
 	"minProperties": 2
 };
+
+exports.viewResultSchema = {
+	"type": "object",
+	"properties": {
+		"email": {
+			"type": "string",
+			"format": "email"
+		},
+		"token": {
+			"type": "string",
+			"minLength": 1
+		}
+	},
+	"additionalProperties": false,
+	"minProperties": 2
+};
