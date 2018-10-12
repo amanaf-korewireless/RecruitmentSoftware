@@ -10,7 +10,7 @@ exports.registerStudentSchema = {
 			"minLength": 1
 		},
 		"yop": {
-			"type": "number",
+			"type": "string",
 			"minLength": 1
 		},
 		"sslcPercentage": {
