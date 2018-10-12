@@ -3,8 +3,9 @@ var router = express.Router();
 
 
 
-/* Register student */
+/* Register new student  */
 router.post('/', function(req, res, next) {
+  console.log("registration process started ",req.body);
   res.send('succuss');
 });
 
@@ -14,5 +15,11 @@ router.post('/', function(req, res, next) {
 
 
 
+
+
+
+// login student
+
+//view student result
 
 module.exports = router;
