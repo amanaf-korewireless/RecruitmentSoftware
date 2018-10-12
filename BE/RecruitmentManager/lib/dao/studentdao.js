@@ -1,27 +1,9 @@
 
 var config = require('../config/serverConfig.json');
-var bcrypt = require('bcrypt');
 
 
-function hashPassword(studentData, callback) {
-    bcrypt.genSalt(config.bcrypt.saltWorkFactor, function (err, salt) {
-        if (err) {
-            callback(err, null);
-            return;
-        }
-        // hash the password along with our new salt
-        bcrypt.hash(studentData.password, salt, function (err, hash) {
-            if (err) {
-                callback(err, null);
-                return;
-            }
-            // override the cleartext password with the hashed one
-            studentData.password = hash;
-            callback(null, 'ok');
-            return;
-        });
-    });
-}
+
+
 
 exports.insert = function (studentData, callback) {
     var MongoClient = require('mongodb').MongoClient;
@@ -32,22 +14,16 @@ exports.insert = function (studentData, callback) {
             return;
         }
         console.log("mongo connection ok");
-        hashPassword(studentData, function (err, data) {
+        var dbo = db.db("RecruitmentManager");
+        dbo.collection("student").insertOne(studentData, function (err, res) {
             if (err) {
                 callback(true, err);
                 return;
             }
-            var dbo = db.db("RecruitmentManager");
-            dbo.collection("student").insertOne(studentData, function (err, res) {
-                if (err) {
-                    callback(true, err);
-                    return;
-                }
-                console.log("1 document inserted");
-                db.close();
-                callback(null, true);
-                return;
-            });
+            console.log("1 document inserted");
+            db.close();
+            callback(null, true);
+            return;
         });
     });
 }
