@@ -9,7 +9,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(username: string, password: string) {
-        let url = "http://18.235.147.82/login"
+        let url = "http://freshers.gadgeon.com/login"
         let data = {
             "email":username,
             "password":password
