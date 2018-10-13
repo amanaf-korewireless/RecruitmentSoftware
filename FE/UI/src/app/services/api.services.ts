@@ -10,7 +10,11 @@ export class ApiServices {
   private serviceUrl = AppConfig.endpoints["atollEndpoint"];
   private serverIp = AppConfig.endpoints["serverIp"];
   getCandidateList() {
-    return this.http.get(this.serviceUrl + "opcode=ATOP002&commcode=ATCC003&die_state=1");
+    return this.http.get(this.serverIp+"/adminprovider");
+  }
+  getCandidateDetail() {
+    let url = this.serverIp+'/result/'+localStorage.getItem("username")+'/'+localStorage.getItem("gadLoginTocken")
+    return this.http.get(url);
   }
   submitCandidateRecord(userData:
     {

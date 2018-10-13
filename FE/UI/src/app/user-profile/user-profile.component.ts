@@ -51,7 +51,6 @@ export class UserProfileComponent implements OnInit {
   }
   Login(){
     localStorage.setItem('userLogin',"false");
-    location.reload();
     this.router.navigateByUrl('/login')
   }
 }

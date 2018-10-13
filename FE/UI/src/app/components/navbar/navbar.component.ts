@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {
-            this.sidebarClose();
+            //this.sidebarClose();
         }
     };
 
@@ -83,7 +83,7 @@ export class NavbarComponent implements OnInit {
         localStorage.removeItem('userLogin');
         localStorage.removeItem('adminLoginGad');
         localStorage.removeItem('gadLoginTocken');
-        location.reload();
         this.router.navigateByUrl('/');
+        location.reload();
     }
 }

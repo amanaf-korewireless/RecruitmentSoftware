@@ -19,5 +19,15 @@ export class CandidateElementComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
   }
   @Input() globalopenflag;
-  @Input() candElement: { sno: string, gateway_datetime: string, server_datetime: string, normal_timeout: string, press_timeout: string, gatewayid: string, nodeid: string, nwid: string, nodetype: string, node_reg_flag: string, switch_status: string, die_removal_flag: string, suppliername: string, assypartnumber: string, partnumber: string, toolid: string, parttype: string, remarks: string, count: string, max_die_life: string, die_life: string, batterystatus: string, latitude: string, longitude: string, zone: string, arming_state: string, die_state: string, mtbf: string, quality: string, failure_downtime: string, reserved: string, endflag: string }
+  @Input() candElement: {
+    name: string,
+    college: string,
+    yop: number,
+    sslcPercentage: string, 
+    plusTwoPercentage: string,
+    degreePercentage:string,
+    mobile:string,
+    email:string,
+    password:string
+  }
 }

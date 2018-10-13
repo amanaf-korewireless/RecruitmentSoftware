@@ -5,6 +5,7 @@ import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
     moduleId: module.id,
+    selector: 'app-login',
     templateUrl: 'login.component.html'
 })
 
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('/candidate-details')
         }
     }
+    loginFlag=false
     ngOnInit() {
         // reset login status
         if (localStorage.getItem('userLogin') == 'true') {
@@ -37,10 +39,11 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("adminLoginGad", "true");
             localStorage.setItem('userLogin', 'true');
             localStorage.setItem('username', this.model.username);
+            this.loginFlag = true;
             this.loading = true;
             this.router.initialNavigation();
-            location.reload();
             this.router.navigateByUrl('/candidate-details')
+            location.reload();
         }
         else {
             this.authenticationService.login(this.model.username, this.model.password).subscribe(
@@ -52,8 +55,8 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('username', this.model.username);
                         this.loading = true;
                         localStorage.setItem("gadLoginTocken",data["body"]["token"])
+                        this.loginFlag = true;
                         this.router.initialNavigation();
-                        location.reload();
                         this.router.navigateByUrl('/candidate-details')
                     }
                 },

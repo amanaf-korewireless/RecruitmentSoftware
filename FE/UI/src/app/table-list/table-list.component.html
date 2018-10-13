@@ -1,43 +1,113 @@
-<div *ngIf="IsadminLogin;else candidate">
-    <div class="main-content gadgeon-content">
-        <div class="row">
-            <div class="col-xs-9">
-                <h5>Candidate List</h5>
-            </div>
-        </div>
-        <div class="section table-section">
+<div class="main-panel">
+    <app-navbar></app-navbar>
+    <router-outlet *ngIf="login"></router-outlet>
+    <div *ngIf="IsadminLogin;else candidate">
+        <div class="main-content gadgeon-content">
             <div class="row">
-                <div id="searchprod" class="collapse searchbar2">
-                    <div class="row">
-                        <div class="col-xs-2">
-                            <input class="col-xs-12" type="search" id="prodtoolId">
+                <div class="col-md-9">
+                    <h5>Candidate List</h5>
+                </div>
+            </div>
+            <div class="section table-section">
+                <div class="row">
+                    <div id="searchprod" class="collapse searchbar2">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="col-md-12" type="search" id="prodtoolId">
+                            </div>
+                            <div class="col-md-2">
+                                <input class="col-md-12" type="search" id="prodpartnumber">
+                            </div>
+                            <div class="col-md-2">
+                                <input class="col-md-12" type="search" id="prodnodeId">
+                            </div>
+                            <div class="col-md-2">
+                                <input class="col-md-12" type="search" id="prodStatus">
+                            </div>
+                            <div class="col-md-2">
+                                <input class="col-md-12" type="search" id="prodvendorName">
+                            </div>
+                            <div class="col-md-2">
+                                <input class="col-md-12" type="date" id="prodDate">
+                            </div>
                         </div>
-                        <div class="col-xs-2">
-                            <input class="col-xs-12" type="search" id="prodpartnumber">
+                    </div>
+                </div>
+                <div class="row atollsearchrow">
+                    <button type="button" class="btn btn-sm atollbutton" data-toggle="collapse" data-target="#searchprod">Search</button>
+                </div>
+                <section>
+                    <div class="row atolltablerow">
+                        <div class="col-md-2">
+                            Name
                         </div>
-                        <div class="col-xs-2">
-                            <input class="col-xs-12" type="search" id="prodnodeId">
+                        <div class="col-md-2">
+                            College
                         </div>
-                        <div class="col-xs-2">
-                            <input class="col-xs-12" type="search" id="prodStatus">
+                        <div class="col-md-1">
+                            Passout
                         </div>
-                        <div class="col-xs-2">
-                            <input class="col-xs-12" type="search" id="prodvendorName">
+                        <div class="col-md-1">
+                            BTech %
                         </div>
-                        <div class="col-xs-2">
-                            <input class="col-xs-12" type="date" id="prodDate">
+                        <div class="col-md-1">
+                            12th %
+                        </div>
+                        <div class="col-md-1">
+                            10th %
+                        </div>
+                        <div class="col-md-1">
+                            Mobile
+                        </div>
+                        <div class="col-md-2">
+                            Email
+                        </div>
+                        <div class="col-md-1">
+                            Batch
+                        </div>
+                    </div>
+                </section>
+                <app-candidate-element *ngFor="let item of candidateList" [candElement]="item">
+                </app-candidate-element>
+            </div>
+
+        </div>
+    </div>
+    <ng-template #candidate>
+        <br>
+        <br><br><br>
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title" style="color:white">Candidate Details</h4>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="section">
+                            <div class="gadgeon-content">
+                                <div class="row">
+                                    <label for="Name">Name: {{candidateDetail.name}}</label>
+                                </div>
+                                <div class="row">
+                                    <label for="email">Email: {{candidateDetail.email}}</label>
+                                </div>
+                                <div class="row">
+                                    <label for="College">College: {{candidateDetail.college}}</label>
+                                </div>
+                                <div class="row">
+                                    <label for="batch">Batch:{{candidateDetail.batch}}</label>
+                                </div>
+                                <div class="row">
+                                    <label for="status">Status:{{candidateDetail.status}}</label>
+                                </div>
+                                <div class="row">
+                                    <label for="batch">Date:{{candidateDetail.date}}</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row atollsearchrow">
-                <button type="button" class="btn btn-sm atollbutton" data-toggle="collapse" data-target="#searchprod">Search</button>
-            </div>
-            <div class="container">
-                <app-candidate-element *ngFor="let item of candidateList" [candElement]="item">
-                </app-candidate-element>
-            </div>
         </div>
-    </div>
+    </ng-template>
 </div>
-<ng-template #candidate>content here...</ng-template>

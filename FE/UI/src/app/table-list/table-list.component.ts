@@ -27,16 +27,26 @@ export class TableListComponent implements OnInit {
   ngOnChanges(){
     this.initdata();
   }
-
-  candidateList = [1, 2, 3]
+  userName;
+  candidateList = []
+  candidateDetail={};
   initdata() {
-    console.log(localStorage.getItem("adminLoginGad"))
+    //console.log(localStorage.getItem("adminLoginGad"))
     if(localStorage.getItem("adminLoginGad")=="true"){
       this.IsadminLogin =true;
     }
     else{
       this.IsadminLogin =false;
     }
+    this.apicall.getCandidateDetail().subscribe(data=>{
+      console.log((data["data"])["name"])
+      this.candidateDetail = data["data"];
+    })
+    this.candidateList = []
+    this.apicall.getCandidateList().subscribe(data =>{
+      this.candidateList = data["data"];
+    })
+
   }
   IsadminLogin = localStorage.getItem("adminLoginGad") == "true" ? true:false;
 

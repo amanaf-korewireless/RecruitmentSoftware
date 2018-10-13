@@ -1,7 +1,7 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title" style="color:white">Register Candidate</h4>
@@ -11,14 +11,14 @@
                             <div class="section">
                                 <form *ngIf="!isRegSuccess">
                                     <div class="row">
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="email">Email address:</label>
                                                 <input type="email" class="form-control" id="email" [(ngModel)]="model.email"
                                                     name="email1" [ngModelOptions]="{standalone: true}">
                                             </div>
                                         </div>
-                                        <div class="col-xs-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="pwd">Password:</label>
                                                 <input type="password" class="form-control" id="password" [(ngModel)]="model.password"
@@ -27,21 +27,21 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-5">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="name">Name of the Candidate:</label>
                                                 <input type="text" class="form-control" id="name" [(ngModel)]="model.name"
                                                     name="name">
                                             </div>
                                         </div>
-                                        <div class="col-xs-5">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="name">Name of the College</label>
                                                 <input type="text" class="form-control" id="college" [(ngModel)]="model.college"
                                                     name="college">
                                             </div>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">Year of Passing</label>
                                                 <input type="text" class="form-control" id="yop" [(ngModel)]="model.yop"
@@ -50,46 +50,53 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-2">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">B-Tech Marks (%)</label>
                                                 <input type="text" class="form-control" id="degreePercentage"
                                                     [(ngModel)]="model.degreePercentage" name="degreePercentage">
                                             </div>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">Plus Two Marks(%)</label>
                                                 <input type="text" class="form-control" id="plusTwoPercentage"
                                                     [(ngModel)]="model.plusTwoPercentage" name="plusTwoPercentage">
                                             </div>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="name">SSLC Marks(%)</label>
                                                 <input type="text" class="form-control" id="sslcPercentage" [(ngModel)]="model.sslcPercentage"
                                                     name="sslcPercentage">
                                             </div>
                                         </div>
-                                        <div class="col-xs-4">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="name">Mobile Number</label>
                                                 <input type="tel" class="form-control" id="mobile" [(ngModel)]="model.mobile"
                                                     name="mobile">
                                             </div>
                                         </div>
-                                        <div class="col-xs-2">
-                                            <button type="submit" class="btn btn-danger" (click)="Register()">Register</button>
-                                            <div class="clearfix">
+                                        <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="name">Batch</label>
+                                                    <input type="text" class="form-control" id="batch" [(ngModel)]="model.batch"
+                                                        name="mobile">
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </form>
                                 <div class="row">
                                     <label style="color: green;font-weight: 500">{{message}}</label>
                                 </div>
+                                <div class="col-md-2">
+                                        <button type="submit" class="btn btn-danger" (click)="Register()">Register</button>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
                                 <div class="row">
-                                    <button type="submit" class="btn btn-danger" (click)="Login()" *ngIf="isRegSuccess">Register</button>
+                                    <button type="submit" class="btn btn-danger" (click)="Login()" *ngIf="isRegSuccess">Login</button>
                                     <div class="clearfix">
                                     </div>
                                 </div>

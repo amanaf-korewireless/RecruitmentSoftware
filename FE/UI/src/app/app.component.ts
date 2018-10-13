@@ -35,7 +35,7 @@ export class AppComponent implements OnInit, OnChanges {
             this.lastPoppedUrl = ev.url;
         });
         this.router.events.subscribe((event: any) => {
-            this.navbar.sidebarClose();
+            //this.navbar.sidebarClose();
             if (event instanceof NavigationStart) {
                 if (event.url != this.lastPoppedUrl)
                     this.yScrollStack.push(window.scrollY);
@@ -48,12 +48,12 @@ export class AppComponent implements OnInit, OnChanges {
             }
         });
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-            elemMainPanel.scrollTop = 0;
-            elemSidebar.scrollTop = 0;
+            //elemMainPanel.scrollTop = 0;
+           // elemSidebar.scrollTop = 0;
         });
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-            let ps = new PerfectScrollbar(elemMainPanel);
-            ps = new PerfectScrollbar(elemSidebar);
+            //let ps = new PerfectScrollbar(elemMainPanel);
+            //ps = new PerfectScrollbar(elemSidebar);
         }
         this.login = localStorage.getItem('userLogin') == 'true' ? false : true;
     }
@@ -76,8 +76,8 @@ export class AppComponent implements OnInit, OnChanges {
     runOnRouteChange(): void {
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
             const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
-            const ps = new PerfectScrollbar(elemMainPanel);
-            ps.update();
+            //const ps = new PerfectScrollbar(elemMainPanel);
+           // ps.update();
         }
         this.login = localStorage.getItem('userLogin') == 'true' ? false : true;
     }
