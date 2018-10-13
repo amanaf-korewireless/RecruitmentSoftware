@@ -37,10 +37,14 @@ exports.registerStudentSchema = {
 			"type": "string",
 			"minLength": 8,
 			"maxLength": 24
+		},
+		"batch": {
+			"type": "string",
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false,
-	"minProperties": 9
+	"minProperties": 10
 };
 
 exports.loginSchemaSchema = {
