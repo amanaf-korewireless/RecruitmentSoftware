@@ -79,6 +79,14 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
+    myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
     logout() {
         localStorage.removeItem('userLogin');
         localStorage.removeItem('adminLoginGad');

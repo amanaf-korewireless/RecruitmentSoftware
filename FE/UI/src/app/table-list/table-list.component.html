@@ -74,34 +74,96 @@
         </div>
     </div>
     <ng-template #candidate>
-        <br>
-        <br><br><br>
         <div class="main-content">
             <div class="card">
                 <div class="card-header card-header-danger">
-                    <h4 class="card-title" style="color:white">Candidate Details</h4>
+                    <h4 class="card-title" style="color:white">Gadgeon Recruitment 2018</h4>
+                    <label class="card-title" style="color:white; font-size: 120%;color: silver">Candidate Detail</label>
                 </div>
                 <div class="card-body">
                     <div class="container">
                         <div class="section">
                             <div class="gadgeon-content">
+                                <br>
                                 <div class="row">
-                                    <label for="Name">Name: {{candidateDetail.name}}</label>
+                                    <div class="col-xs-4">
+                                        <label for="">Candidate Name</label>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="Name">{{candidateDetail.name}}</label>
+                                    </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                    <label for="email">Email: {{candidateDetail.email}}</label>
+                                    <div class="col-xs-4">
+                                        Email
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="email">{{candidateDetail.email}}</label>
+                                    </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                    <label for="College">College: {{candidateDetail.college}}</label>
+                                    <div class="col-xs-4">
+                                        College
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="College">{{candidateDetail.college}}</label>
+                                    </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                    <label for="batch">Batch:{{candidateDetail.batch}}</label>
+                                    <div class="col-xs-4">
+                                        Batch
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="batch">{{candidateDetail.batch}}</label>
+                                    </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                    <label for="status">Status:{{candidateDetail.status}}</label>
+                                    <div class="col-xs-4">
+                                        Written Test
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="status" [ngStyle]="{color: getColorW()}">{{candidateDetail.writingTestResult}}</label>
+                                    </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                    <label for="batch">Date: 13 October 2018</label>
+                                    <div class="col-xs-4">
+                                        Tehnical Round1
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="status" [ngStyle]="{color: getColorT1()}">{{candidateDetail.technicalRound1Result}}</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        Tehnical Round2
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="status" [ngStyle]="{color: getColorT2()}">{{candidateDetail.technicalRound2Result}}</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        HR Round
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="status" [ngStyle]="{color: getColorH()}">{{candidateDetail.hrRound2Result}}</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        Date
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label for="batch">{{candidateDetail.registrationDate}}</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

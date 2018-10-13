@@ -5,6 +5,7 @@ import { ApiServices } from '../services/api.services'
 import { Router } from '@angular/router'
 declare const $: any;
 import { GlobalService } from '../services/index';
+import { getParentRenderElement } from '@angular/core/src/view/util';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -39,7 +40,7 @@ export class TableListComponent implements OnInit {
       this.IsadminLogin =false;
     }
     this.apicall.getCandidateDetail().subscribe(data=>{
-      console.log((data["data"])["name"])
+      console.log((data["data"]))
       this.candidateDetail = data["data"];
     })
     this.candidateList = []
@@ -49,5 +50,60 @@ export class TableListComponent implements OnInit {
 
   }
   IsadminLogin = localStorage.getItem("adminLoginGad") == "true" ? true:false;
-
+  getColorT1(){
+    if(this.candidateDetail["technicalRound1Result"] == 'Pass'){
+      return "green";
+    }
+    if(this.candidateDetail["technicalRound1Result"] == 'Pending'){
+      return "orange";
+    }
+    if(this.candidateDetail["technicalRound1Result"] == 'Failed'){
+      return "red";
+    }
+    else{
+      return 'blue'
+    }
+  }
+  getColorT2(){
+    if(this.candidateDetail["technicalRound2Result"] == 'Pass'){
+      return "green";
+    }
+    if(this.candidateDetail["technicalRound2Result"] == 'Pending'){
+      return "orange";
+    }
+    if(this.candidateDetail["technicalRound2Result"] == 'Failed'){
+      return "red";
+    }
+    else{
+      return 'blue'
+    }
+  }
+  getColorW(){
+    if(this.candidateDetail["writingTestResult"] == 'Pass'){
+      return "green";
+    }
+    if(this.candidateDetail["writingTestResult"] == 'Pending'){
+      return "orange";
+    }
+    if(this.candidateDetail["writingTestResult"] == 'Failed'){
+      return "red";
+    }
+    else{
+      return 'blue'
+    }
+  }
+  getColorH(){
+    if(this.candidateDetail["hrRound2Result"] == 'Pass'){
+      return "green";
+    }
+    if(this.candidateDetail["hrRound2Result"] == 'Pending'){
+      return "orange";
+    }
+    if(this.candidateDetail["hrRound2Result"] == 'Failed'){
+      return "red";
+    }
+    else{
+      return 'blue'
+    }
+  }
 }
