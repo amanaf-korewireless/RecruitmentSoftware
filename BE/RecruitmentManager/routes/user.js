@@ -23,6 +23,11 @@ router.post('/', function (req, res, next) {
           res.status(400).send({ "errorMessage": "Email already exist", "errorCode": "ER003" })
           return;
         }
+        req.body.writingTestResult="Pending";
+        req.body.aptitudeTestResult="Pending";
+        req.body.technicalRound1Result="Pending";
+        req.body.technicalRound2Result="Pending";
+        req.body.hrRound2Result="Pending";
         userDao.insert(req.body, function (err, reply) {
           if (err) {
             res.status(400).send({ "errorMessage": "Server error", "errorCode": "ER002" })
