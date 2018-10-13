@@ -78,7 +78,7 @@ exports.login = function (studentData, callback) {
     });
 }
 
-exports.updateToken = function (studentData, callback) {
+exports.update = function (studentData, callback) {
     var MongoClient = require('mongodb').MongoClient;
     var url = "mongodb://localhost:27017/";
     MongoClient.connect(url, function (err, db) {
@@ -147,4 +147,28 @@ exports.getAllDetails = function (studentData, callback) {
         });
     });
 }
+
+exports.getUserDetailsByEmail = function (studentData, callback) {
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/";
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            callback(true, err);
+            return;
+        }
+        console.log("mongo connection ok");
+        var dbo = db.db("RecruitmentManager");
+        dbo.collection("user").findOne({ email: studentData.email }, function (err, result) {
+            if (err) {
+                callback(true, err);
+                return;
+            }
+            console.log(result);
+            db.close();
+            callback(null, result);
+            return;
+        });
+    });
+}
+
 

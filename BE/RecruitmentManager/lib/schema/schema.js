@@ -79,3 +79,35 @@ exports.viewResultSchema = {
 	"additionalProperties": false,
 	"minProperties": 2
 };
+
+exports.updateResultSchema = {
+	"type": "object",
+	"properties": {
+		"email": {
+			"type": "string",
+			"format": "email"
+		},
+		"writingTestResult": {
+			"type": "string",
+			"minLength": 1
+		},
+		"aptitudeTestResult": {
+			"type": "string",
+			"minLength": 1
+		},
+		"technicalRound1Result": {
+			"type": "string",
+			"minLength": 1
+		},
+		"technicalRound2Result": {
+			"type": "string",
+			"mintechnicalRound2ResultLength": 1
+		},
+		"hrRound2Result": {
+			"type": "string",
+			"minLength": 1
+		}
+	},
+	"additionalProperties": false,
+	"minProperties": 6
+};

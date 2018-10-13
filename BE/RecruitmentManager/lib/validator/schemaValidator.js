@@ -44,3 +44,18 @@ exports.validateViewResultSchema = function (requestBody, callback) {
 		return;
 	}
 }
+
+exports.validateupdateResultSchema = function (requestBody, callback) {
+	var schema = userSchema.updateResultSchema;
+	var validate = ajv.compile(schema);
+	var valid = validate(requestBody);
+	if (valid) {
+		callback(null, true);
+		return;
+	}
+	else {
+		callback(true, true);
+		return;
+	}
+}
+

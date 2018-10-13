@@ -95,4 +95,49 @@ router.get('/adminprovider/', function (req, res, next) {
   });
 });
 
+
+/* update student result  */
+router.put('/', function (req, res, next) {
+  console.log("updation process started ", req.body);
+  //validate json schema
+  validator.validateupdateResultSchema(req.body, function (err, reply) {
+    if (err) {
+      res.status(400).send({ "errorMessage": "Incorrect Request Data Formatexpress-jsonschema: Invalid data found", "errorCode": "ER001" })
+      return;
+    }
+    else {
+      console.log("request body validation completed");
+      userDao.getUserDetailsByEmail(req.body, function (err, reply) {
+        if (err) {
+          res.status(400).send({ "errorMessage": "Server error", "errorCode": "ER002" })
+          return;
+        }
+        if (!reply) {
+          res.status(400).send({ "errorMessage": "Invalid user", "errorCode": "ER006" })
+          return;
+        }
+        var data = reply;
+        data.writingTestResult = req.body.writingTestResult;
+        data.aptitudeTestResult = req.body.aptitudeTestResult;
+        data.technicalRound1Result = req.body.technicalRound1Result;
+        data.technicalRound2Result = req.body.technicalRound2Result;
+        data.hrRound2Result = req.body.hrRound2Result;
+        data.registrationDate = req.body.registrationDate = new Date();
+
+        userDao.update(data, function (err, reply) {
+          if (err) {
+            res.status(400).send({ "errorMessage": "Server error", "errorCode": "ER002" })
+            return;
+          }
+          console.log("result updation completed succussfully");
+          res.status(200).send({ "succuss": true, "msg": "result updation completed succussfully" })
+          return;
+        });
+      });
+    }
+  });
+});
+
+
+
 module.exports = router;

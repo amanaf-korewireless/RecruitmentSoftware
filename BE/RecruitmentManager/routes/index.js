@@ -39,7 +39,7 @@ router.post('/login/', function (req, res, next) {
           console.log("token generated succussfully");
           var token = buffer.toString('hex');
           data.token = token;
-          userDao.updateToken(data, function (err, reply) {
+          userDao.update(data, function (err, reply) {
             if (err) {
               res.status(400).send({ "errorMessage": "Server error", "errorCode": "ER002" })
               return;
