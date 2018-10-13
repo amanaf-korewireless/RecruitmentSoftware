@@ -693,8 +693,8 @@ var SidebarComponent = (function () {
 var APP_CONFIG = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* InjectionToken */]('app.config');
 var AppConfig = {
     endpoints: {
-        atollEndpoint: 'http://18.235.147.822/',
-        serverIp: 'http://18.235.147.82/student'
+        atollEndpoint: 'http://freshers.gadgeon.com/',
+        serverIp: 'http://Freshers.gadgeon.com/student'
     }
 };
 //# sourceMappingURL=app.config.js.map
@@ -1126,7 +1126,7 @@ var AuthenticationService = (function () {
         this.http = http;
     }
     AuthenticationService.prototype.login = function (username, password) {
-        var url = "http://18.235.147.82/login";
+        var url = "http://freshers.gadgeon.com/login";
         var data = {
             "email": username,
             "password": password
