@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit {
     }
     message;
     login() {
-
-        if(this.validate()){
             if (this.model.username == "hr@gadgeon.com" && this.model.password == "Hr@Gad#2018") {
                 localStorage.setItem("adminLoginGad", "true");
                 localStorage.setItem('userLogin', 'true');
@@ -74,9 +72,5 @@ export class LoginComponent implements OnInit {
                         this.message = "Invalid username or password"
                     });
             }
-        }
-        else{
-            this.message = "Please enter"
-        }
     }
 }

@@ -879,7 +879,7 @@ var FilterUtils = (function () {
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!loginFlag\" class=\"container\" style=\"margin-top: 4% ;overflow: hidden!important;\">\r\n    <section class=\"container\" style=\"background: white;height: 540px;width: 360px\">\r\n        <div class=\"row\">\r\n            <h2 style=\"margin: 2%; color:#074D80!important;font-weight: 500;font-size: 200%!important\">\r\n                Gadgeon Smart Systems\r\n            </h2>\r\n            <img src=\"../../assets/img/logo-login.png\" alt=\"\" style=\"margin-left: 20%\" width=\"50%\" height=\"50%\">\r\n        </div>\r\n        <div class=\"row\" style=\"margin:2%\">\r\n            <form name=\"form\" (ngSubmit)=\"this.validate() && login()\" #f=\"ngForm\">\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required style=\"color:#074D80!important;font-weight: 500!important;font-size: 150%!important\"\r\n                    />\r\n                    <div *ngIf=\"!this.validate()\" class=\"help-block\" style=\"color:red\">Username is required</div>\r\n                </div>\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n                    <label for=\"password\">Password</label>\r\n                    <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required style=\"color:#074D80!important;font-weight: 600!important;font-size: 200%!important\"\r\n                    />\r\n                    <div *ngIf=\"!this.validate()\" class=\"help-block\" style=\"color:red\">Password is required</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"loading\" class=\"btn btn-sm btn-github\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\">\r\n                        Sign In\r\n                    </button>\r\n                    <button class=\"btn btn-sm btn-github navbar-right\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\" (click)=\"Register()\">\r\n                        Register\r\n                    </button>\r\n                </div>\r\n                  \r\n            </form>\r\n        </div>\r\n    </section>\r\n</div>"
+module.exports = "<div *ngIf=\"!loginFlag\" class=\"container\" style=\"margin-top: 4% ;overflow: hidden!important;\">\r\n    <section class=\"container\" style=\"background: white;height: 540px;width: 360px\">\r\n        <div class=\"row\">\r\n            <h2 style=\"margin: 2%; color:#074D80!important;font-weight: 500;font-size: 200%!important\">\r\n                Gadgeon Smart Systems\r\n            </h2>\r\n            <img src=\"../../assets/img/logo-login.png\" alt=\"\" style=\"margin-left: 20%\" width=\"50%\" height=\"50%\">\r\n        </div>\r\n        <div class=\"row\" style=\"margin:2%\">\r\n            <form name=\"form\" (ngSubmit)=\"login()\" #f=\"ngForm\">\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required style=\"color:#074D80!important;font-weight: 500!important;font-size: 150%!important\"\r\n                    />\r\n                    <div *ngIf=\"!this.validate()\" class=\"help-block\" style=\"color:red\">Username is required</div>\r\n                </div>\r\n                <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n                    <label for=\"password\">Password</label>\r\n                    <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required style=\"color:#074D80!important;font-weight: 600!important;font-size: 200%!important\"\r\n                    />\r\n                    <div *ngIf=\"!this.validate()\" class=\"help-block\" style=\"color:red\">Password is required</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"loading\" class=\"btn btn-sm btn-github\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\">\r\n                        Sign In\r\n                    </button>\r\n                    <button class=\"btn btn-sm btn-github navbar-right\" style=\"background:#074D80;text-transform: unset!important;font-size: 100%\" (click)=\"Register()\">\r\n                        Register\r\n                    </button>\r\n                </div>\r\n                  \r\n            </form>\r\n        </div>\r\n    </section>\r\n</div>"
 
 /***/ }),
 
@@ -936,37 +936,32 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        if (this.validate()) {
-            if (this.model.username == "hr@gadgeon.com" && this.model.password == "Hr@Gad#2018") {
-                localStorage.setItem("adminLoginGad", "true");
-                localStorage.setItem('userLogin', 'true');
-                localStorage.setItem('username', this.model.username);
-                this.loginFlag = true;
-                this.loading = true;
-                this.router.initialNavigation();
-                this.router.navigateByUrl('/candidate-details');
-                location.reload();
-            }
-            else {
-                this.authenticationService.login(this.model.username, this.model.password).subscribe(function (data) {
-                    console.log(data["body"]);
-                    if (data["body"]['succuss'] == true) {
-                        console.log("Success");
-                        localStorage.setItem('userLogin', 'true');
-                        localStorage.setItem('username', _this.model.username);
-                        _this.loading = true;
-                        localStorage.setItem("gadLoginTocken", data["body"]["token"]);
-                        _this.loginFlag = true;
-                        _this.router.initialNavigation();
-                        _this.router.navigateByUrl('/candidate-details');
-                    }
-                }, function (error) {
-                    _this.message = "Invalid username or password";
-                });
-            }
+        if (this.model.username == "hr@gadgeon.com" && this.model.password == "Hr@Gad#2018") {
+            localStorage.setItem("adminLoginGad", "true");
+            localStorage.setItem('userLogin', 'true');
+            localStorage.setItem('username', this.model.username);
+            this.loginFlag = true;
+            this.loading = true;
+            this.router.initialNavigation();
+            this.router.navigateByUrl('/candidate-details');
+            location.reload();
         }
         else {
-            this.message = "Please enter";
+            this.authenticationService.login(this.model.username, this.model.password).subscribe(function (data) {
+                console.log(data["body"]);
+                if (data["body"]['succuss'] == true) {
+                    console.log("Success");
+                    localStorage.setItem('userLogin', 'true');
+                    localStorage.setItem('username', _this.model.username);
+                    _this.loading = true;
+                    localStorage.setItem("gadLoginTocken", data["body"]["token"]);
+                    _this.loginFlag = true;
+                    _this.router.initialNavigation();
+                    _this.router.navigateByUrl('/candidate-details');
+                }
+            }, function (error) {
+                _this.message = "Invalid username or password";
+            });
         }
     };
     LoginComponent = __decorate([
