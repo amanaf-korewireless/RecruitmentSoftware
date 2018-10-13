@@ -27,6 +27,7 @@ export class ApiServices {
       mobile:string,
       email:string,
       password:string
+      batch:string
     }) 
     {
     let headers = new Headers({ 'Content-Type': 'application/json' });
