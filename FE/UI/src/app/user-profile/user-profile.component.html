@@ -79,11 +79,14 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="name">Batch</label>
-                                                    <input type="text" class="form-control" id="batch" [(ngModel)]="model.batch"
-                                                        name="batch">
-                                                </div>
+                                            <div class="form-group">
+                                                <label for="sel1">Select Batch</label>
+                                                <select class="form-control" id="batch" [(ngModel)]="model.batch"
+                                                name="batch">
+                                                  <option>Oct 13 Morning</option>
+                                                  <option>Oct 13 Afternoon</option>
+                                                </select>
+                                              </div>
                                             </div>
                                     </div>
                                 </form>
@@ -91,7 +94,7 @@
                                     <label style="color: green;font-weight: 500">{{message}}</label>
                                 </div>
                                 <div class="col-md-2">
-                                        <button type="submit" class="btn btn-danger" (click)="Register()">Register</button>
+                                        <button type="submit" class="btn btn-danger" (click)="Register()"*ngIf="!isRegSuccess">Register</button>
                                         <div class="clearfix">
                                         </div>
                                     </div>

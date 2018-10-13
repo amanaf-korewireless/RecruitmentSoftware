@@ -66,14 +66,15 @@ export class UserProfileComponent implements OnInit {
       this.apicall.submitCandidateRecord(this.model).subscribe(
         resp => {
           this.isRegSuccess = resp["body"]["succuss"];
-          this.message = resp["body"]["msg"];
+          this.message = "Registration Completed";
           this.isRegSuccess = true;
           console.log(this.isRegSuccess, this.message)
         },
         err => {
           let errorMessage = this.getErrorMessage(JSON.parse(err["error"])["errorCode"])
           this.message = errorMessage;
-          console.log(JSON.parse(err["error"])["errorCode"])
+          console.log(JSON.parse(err["error"]))
+          this.router.navigateByUrl("/user-profile")
           //this.message = this.message = err["error"]["errorCode"];
           console.log("Server Error");
         });

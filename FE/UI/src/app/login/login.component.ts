@@ -33,35 +33,50 @@ export class LoginComponent implements OnInit {
     Register(){
         this.router.navigateByUrl('/user-profile')
     }
+    validate(){
+        if(this.model.name == undefined || this.model.password == undefined){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    message;
     login() {
 
-        if (this.model.username == "hr@gadgeon.com" && this.model.password == "Hr@Gad#2018") {
-            localStorage.setItem("adminLoginGad", "true");
-            localStorage.setItem('userLogin', 'true');
-            localStorage.setItem('username', this.model.username);
-            this.loginFlag = true;
-            this.loading = true;
-            this.router.initialNavigation();
-            this.router.navigateByUrl('/candidate-details')
-            location.reload();
+        if(this.validate()){
+            if (this.model.username == "hr@gadgeon.com" && this.model.password == "Hr@Gad#2018") {
+                localStorage.setItem("adminLoginGad", "true");
+                localStorage.setItem('userLogin', 'true');
+                localStorage.setItem('username', this.model.username);
+                this.loginFlag = true;
+                this.loading = true;
+                this.router.initialNavigation();
+                this.router.navigateByUrl('/candidate-details')
+                location.reload();
+            }
+            else {
+                this.authenticationService.login(this.model.username, this.model.password).subscribe(
+                    data => {
+                        console.log(data["body"])
+                        if (data["body"]['succuss'] == true) {
+                            console.log("Success")
+                            localStorage.setItem('userLogin', 'true');
+                            localStorage.setItem('username', this.model.username);
+                            this.loading = true;
+                            localStorage.setItem("gadLoginTocken",data["body"]["token"])
+                            this.loginFlag = true;
+                            this.router.initialNavigation();
+                            this.router.navigateByUrl('/candidate-details')
+                        }
+                    },
+                    error => {
+                        this.message = "Invalid username or password"
+                    });
+            }
         }
-        else {
-            this.authenticationService.login(this.model.username, this.model.password).subscribe(
-                data => {
-                    console.log(data["body"])
-                    if (data["body"]['succuss'] == true) {
-                        console.log("Success")
-                        localStorage.setItem('userLogin', 'true');
-                        localStorage.setItem('username', this.model.username);
-                        this.loading = true;
-                        localStorage.setItem("gadLoginTocken",data["body"]["token"])
-                        this.loginFlag = true;
-                        this.router.initialNavigation();
-                        this.router.navigateByUrl('/candidate-details')
-                    }
-                },
-                error => {
-                });
+        else{
+            this.message = "Please enter"
         }
     }
 }
