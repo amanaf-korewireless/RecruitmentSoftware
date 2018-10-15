@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, Input, OnChanges, SimpleChanges, EventEmitter, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiServices } from '../../services/api.services'
+import {Md5} from 'ts-md5/dist/md5';
+
 import { ThrowStmt } from '@angular/compiler';
 @Component({
   selector: 'app-candidate-element',
@@ -14,7 +16,6 @@ export class CandidateElementComponent implements OnInit, OnChanges {
   }
   prodBarPercent: number;
   ngOnInit() {
-
   }
   ngOnChanges(changes: SimpleChanges): void {
   }
@@ -30,13 +31,15 @@ export class CandidateElementComponent implements OnInit, OnChanges {
       "aptitudeTestResult":this.writingTestResult,
       "technicalRound1Result":this.technicalRound1Result,
       "technicalRound2Result":this.technicalRound2Result,
-      "hrRound2Result" : this.hrRound2Result
+      "hrRound2Result" : this.hrRound2Result,
     }).subscribe(data=>{
       console.log(data)
     })
   }
-  @Input() globalopenflag;
+  
+  @Input() slno;
   @Input() candElement: {
+    _id:string,
     name: string,
     college: string,
     yop: number,
@@ -45,6 +48,7 @@ export class CandidateElementComponent implements OnInit, OnChanges {
     degreePercentage:string,
     mobile:string,
     email:string,
-    password:string
+    password:string,
+    batch:string
   }
 }

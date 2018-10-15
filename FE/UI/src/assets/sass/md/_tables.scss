@@ -51,6 +51,10 @@
     margin-bottom: 0px;
     min-height: 10vh;
     border-bottom: .25px solid $gray-lighter;
+    label{
+        color: white;
+    }
+    
     .col-xs-3,.col-xs-2{
         overflow: hidden;
     &:hover{
@@ -58,7 +62,12 @@
     }
     }
 }
-
+.gadheader{
+    background: #23618E!important;
+    label{
+        background-position-y: 20%!important;
+    }
+}
 .progress{
     border-radius: 0px;
     width: 6vw;

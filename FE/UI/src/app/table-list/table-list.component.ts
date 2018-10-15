@@ -57,7 +57,7 @@ export class TableListComponent implements OnInit {
     if(this.candidateDetail["technicalRound1Result"] == 'Pending'){
       return "orange";
     }
-    if(this.candidateDetail["technicalRound1Result"] == 'Failed'){
+    if(this.candidateDetail["technicalRound1Result"] == 'Fail'){
       return "red";
     }
     else{
@@ -71,7 +71,7 @@ export class TableListComponent implements OnInit {
     if(this.candidateDetail["technicalRound2Result"] == 'Pending'){
       return "orange";
     }
-    if(this.candidateDetail["technicalRound2Result"] == 'Failed'){
+    if(this.candidateDetail["technicalRound2Result"] == 'Fail'){
       return "red";
     }
     else{
@@ -85,7 +85,7 @@ export class TableListComponent implements OnInit {
     if(this.candidateDetail["writingTestResult"] == 'Pending'){
       return "orange";
     }
-    if(this.candidateDetail["writingTestResult"] == 'Failed'){
+    if(this.candidateDetail["writingTestResult"] == 'Fail'){
       return "red";
     }
     else{
@@ -99,7 +99,7 @@ export class TableListComponent implements OnInit {
     if(this.candidateDetail["hrRound2Result"] == 'Pending'){
       return "orange";
     }
-    if(this.candidateDetail["hrRound2Result"] == 'Failed'){
+    if(this.candidateDetail["hrRound2Result"] == 'Fail'){
       return "red";
     }
     else{

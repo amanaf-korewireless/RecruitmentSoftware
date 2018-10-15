@@ -1,6 +1,6 @@
 <div class="main-panel">
     <app-navbar></app-navbar>
-    <router-outlet *ngIf="login"></router-outlet>
+    <router-outlet></router-outlet>
     <div *ngIf="IsadminLogin;else candidate">
         <div class="main-content gadgeon-content">
             <div class="row">
@@ -9,7 +9,8 @@
                 </div>
             </div>
             <div class="row atollsearchrow">
-                <button type="button" class="btn btn-sm atollbutton" data-toggle="collapse" data-target="#searchprod">Search Candidate</button>
+                <button type="button" class="btn btn-sm atollbutton" data-toggle="collapse" data-target="#searchprod">Search
+                    Candidate</button>
             </div>
             <br>
             <div class="section table-section">
@@ -28,39 +29,34 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <section>
-                    <div class="row atolltablerow">
-                        <div class="col-md-2">
-                            Name
-                        </div>
-                        <div class="col-md-2">
-                            College
-                        </div>
+                    <div class="row atolltablerow gadheader">
                         <div class="col-md-1">
-                            Passout
-                        </div>
-                        <div class="col-md-1">
-                            BTech %
-                        </div>
-                        <div class="col-md-1">
-                            12th %
-                        </div>
-                        <div class="col-md-1">
-                            10th %
-                        </div>
-                        <div class="col-md-1">
-                            Mobile
+                            <label for="">Sl.No</label>
                         </div>
                         <div class="col-md-2">
-                            Email
+                            <label for="">Name</label>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <label for="">College</label>
                         </div>
                         <div class="col-md-1">
-                            Batch
+                            <label for="">Passout</label>
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">Mobile</label>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">Batch</label>
                         </div>
                     </div>
                 </section>
-                <app-candidate-element *ngFor="let item of candidateList" [candElement]="item">
+                <app-candidate-element *ngFor="let item of candidateList;let i=index" [candElement]="item" [slno]="i">
                 </app-candidate-element>
             </div>
 
@@ -80,7 +76,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <label for="">Candidate Name</label>
+                                        Name
                                     </div>
                                     <div class="col-xs-6">
                                         <label for="Name">{{candidateDetail.name}}</label>
@@ -115,39 +111,55 @@
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <div class="col-xs-4">
-                                        Written Test
+                                    <div class="col-xs-4" data-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        Status
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="status" [ngStyle]="{color: getColorW()}">{{candidateDetail.writingTestResult}}</label>
+                                        <label for="overallstatus">Pending</label>
+                                        <br>
+                                        <br>
+                                        <div class="row">
+                                            <div class="collapse" id="collapseExample">
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        Written Test
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label for="status" [ngStyle]="{color: getColorW()}">{{candidateDetail.writingTestResult}}</label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        Tehnical Round1
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label for="status" [ngStyle]="{color: getColorT1()}">{{candidateDetail.technicalRound1Result}}</label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        Tehnical Round2
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label for="status" [ngStyle]="{color: getColorT2()}">{{candidateDetail.technicalRound2Result}}</label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        HR Round
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label for="status" [ngStyle]="{color: getColorH()}">{{candidateDetail.hrRound2Result}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        Tehnical Round1
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <label for="status" [ngStyle]="{color: getColorT1()}">{{candidateDetail.technicalRound1Result}}</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        Tehnical Round2
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <label for="status" [ngStyle]="{color: getColorT2()}">{{candidateDetail.technicalRound2Result}}</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        HR Round
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <label for="status" [ngStyle]="{color: getColorH()}">{{candidateDetail.hrRound2Result}}</label>
-                                    </div>
+
                                 </div>
                                 <br>
                                 <div class="row">

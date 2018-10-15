@@ -23,7 +23,7 @@
                                                 <label for="pwd">Password:</label>
                                                 <input type="password" class="form-control" id="password" [(ngModel)]="model.password"
                                                     name="password">
-                                                <div *ngIf="!this.validate()" class="help-block" style="color:red">password should have minimum length of 8</div>
+                                                <div *ngIf="!this.validateP()" class="help-block" style="color:red">password should have minimum length of 8</div>
                                             </div>
                                         </div>
                                     </div>
@@ -84,8 +84,8 @@
                                                 <label for="sel1">Select Batch</label>
                                                 <select class="form-control" id="batch" [(ngModel)]="model.batch"
                                                 name="batch">
-                                                  <option>Oct 13 Morning</option>
-                                                  <option>Oct 13 Afternoon</option>
+                                                  <option>Morning</option>
+                                                  <option>Afternoon</option>
                                                 </select>
                                               </div>
                                             </div>
