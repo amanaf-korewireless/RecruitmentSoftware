@@ -23,6 +23,7 @@
                                                 <label for="pwd">Password:</label>
                                                 <input type="password" class="form-control" id="password" [(ngModel)]="model.password"
                                                     name="password">
+                                                <div *ngIf="!this.validate()" class="help-block" style="color:red">password should have minimum length of 8</div>
                                             </div>
                                         </div>
                                     </div>

@@ -1,7 +1,7 @@
-<section>
+<section data-toggle="modal" data-target="#myModal">
     <div class="row atolltablerow">
         <div class="col-md-2">
-                {{candElement.name}}
+            {{candElement.name}}
         </div>
         <div class="col-md-2">
             {{candElement.college}}
@@ -16,16 +16,74 @@
             {{candElement.plusTwoPercentage}}
         </div>
         <div class="col-md-1">
-                {{candElement.sslcPercentage}}
+            {{candElement.sslcPercentage}}
         </div>
         <div class="col-md-1">
-                {{candElement.mobile}}
+            {{candElement.mobile}}
         </div>
         <div class="col-md-2">
             {{candElement.email}}
         </div>
         <div class="col-md-1">
-            {{candElement.batch}} 
+            {{candElement.batch}}
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Update Status - {{candElement.name}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Written Test
+                    </div>
+                    <div class="col-xs-6">
+                        <input [(ngModel)]="writingTestResult" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4">
+                        Tehnical Round1
+                    </div>
+                    <div class="col-xs-6">
+                        <input [(ngModel)]="technicalRound1Result" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4">
+                        Tehnical Round2
+                    </div>
+                    <div class="col-xs-6">
+                        <input [(ngModel)]="technicalRound2Result" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4">
+                        HR Round
+                    </div>
+                    <div class="col-xs-6">
+                        <input [(ngModel)]="hrRound2Result" />
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-default" (click)="updateStatus()">Update Status</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

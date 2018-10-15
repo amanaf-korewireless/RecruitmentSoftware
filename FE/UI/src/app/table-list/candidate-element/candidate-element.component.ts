@@ -18,6 +18,23 @@ export class CandidateElementComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
   }
+  writingTestResult;
+  registrationDate;
+  technicalRound1Result;
+  technicalRound2Result;
+  hrRound2Result;
+  updateStatus(){
+    this.apicall.updateStatus({
+      "email":this.candElement.email,
+      "writingTestResult": this.writingTestResult,
+      "aptitudeTestResult":this.writingTestResult,
+      "technicalRound1Result":this.technicalRound1Result,
+      "technicalRound2Result":this.technicalRound2Result,
+      "hrRound2Result" : this.hrRound2Result
+    }).subscribe(data=>{
+      console.log(data)
+    })
+  }
   @Input() globalopenflag;
   @Input() candElement: {
     name: string,

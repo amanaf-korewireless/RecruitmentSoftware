@@ -61,6 +61,14 @@ export class UserProfileComponent implements OnInit {
       return true;
     }
   }
+  validateP(){
+    if (this.model.password.length < 8){
+      return false
+    }
+    else{
+      return true
+    }
+  }
   Register() {
     if(this.validate()){
       this.apicall.submitCandidateRecord(this.model).subscribe(

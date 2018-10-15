@@ -16,6 +16,14 @@ export class ApiServices {
     let url = this.serverIp+'/result/'+localStorage.getItem("username")+'/'+localStorage.getItem("gadLoginTocken")
     return this.http.get(url);
   }
+  updateStatus(data){
+    let url = this.serverIp;
+    console.log("data",data)
+    return this.http.put(url,data,{
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      observe: 'response'
+    })
+  }
   submitCandidateRecord(userData:
     {
       name: string,

@@ -86,6 +86,7 @@ export class NavbarComponent implements OnInit {
         } else {
             x.className = "topnav";
         }
+        
     }
     logout() {
         localStorage.removeItem('userLogin');
