@@ -8,7 +8,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { CandidateElementComponent } from './table-list/candidate-element/candidate-element.component'
@@ -24,7 +23,6 @@ import { AuthenticationService } from './services/authentication.service';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     UserProfileComponent,
     TableListComponent,
     LoginComponent,
