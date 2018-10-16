@@ -4,17 +4,15 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { ApiServices } from '../services/api.services'
 import { Router } from '@angular/router'
 declare const $: any;
-import { GlobalService } from '../services/index';
 import { getParentRenderElement } from '@angular/core/src/view/util';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css'],
-  providers: [GlobalService]
+  styleUrls: ['./table-list.component.css']
 })
 export class TableListComponent implements OnInit {
 
-  constructor(private renderer: Renderer2, private apicall: ApiServices, private router: Router, public global: GlobalService) {
+  constructor(private renderer: Renderer2, private apicall: ApiServices, private router: Router) {
     if (localStorage.getItem('userLogin') == 'true') {
     }
     else {

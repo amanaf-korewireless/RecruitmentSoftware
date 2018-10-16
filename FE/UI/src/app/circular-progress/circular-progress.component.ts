@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiServices } from '../services/api.services'
 import { Router, ActivatedRoute } from '@angular/router';
 declare const $: any;
-import {GlobalService} from '../services/index';
 @Component({
   selector: 'app-circular-progress',
   templateUrl: './circular-progress.component.html'

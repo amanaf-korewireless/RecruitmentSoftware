@@ -2,16 +2,14 @@ import { Component, OnInit, Output } from '@angular/core';
 import { ApiServices } from '../services/api.services'
 import { Router, ActivatedRoute } from '@angular/router';
 declare const $: any;
-import { GlobalService } from '../services/index';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [GlobalService]
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private apicall: ApiServices, private router: Router, public global: GlobalService) {
+  constructor(private apicall: ApiServices, private router: Router) {
     
     localStorage.setItem('selectedTab','Production');
     if (localStorage.getItem('userLogin') == 'true') {
@@ -49,6 +47,5 @@ export class DashboardComponent implements OnInit {
     return ({ dasharray: this.totalFill * (value / total), dashoffset: this.totalFill - (this.totalFill * (value / total)) });
   }
   setTab(val: string) {
-    this.global.activeTab = val;
   }
 }

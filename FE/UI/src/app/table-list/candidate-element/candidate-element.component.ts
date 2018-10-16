@@ -1,9 +1,6 @@
 import { Component, OnInit, Output, Input, OnChanges, SimpleChanges, EventEmitter, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiServices } from '../../services/api.services'
-import {Md5} from 'ts-md5/dist/md5';
-
-import { ThrowStmt } from '@angular/compiler';
 @Component({
   selector: 'app-candidate-element',
   templateUrl: './candidate-element.component.html',

@@ -6,7 +6,6 @@ export let APP_CONFIG = new InjectionToken('app.config');
 
 export const AppConfig: IAppConfig = {
   endpoints: {
-    atollEndpoint: 'http://freshers.gadgeon.com/',
-    serverIp: 'http://Freshers.gadgeon.com/student'
+    serverIp: 'http://freshers.gadgeon.com/student'
   }
 };

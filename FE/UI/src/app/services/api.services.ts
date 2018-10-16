@@ -7,7 +7,6 @@ import { RequestOptions, Headers } from '@angular/http';
 @Injectable()
 export class ApiServices {
   constructor(private http: HttpClient) { }
-  private serviceUrl = AppConfig.endpoints["atollEndpoint"];
   private serverIp = AppConfig.endpoints["serverIp"];
   getCandidateList() {
     return this.http.get(this.serverIp+"/adminprovider");

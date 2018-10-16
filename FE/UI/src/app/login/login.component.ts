@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService, AuthenticationService } from '../services/index';
+import {  AuthenticationService } from '../services/authentication.service';
 
 @Component({
     moduleId: module.id,
@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService) {
+        private authenticationService: AuthenticationService) {
         if (localStorage.getItem('userLogin') == 'true') {
             this.router.navigateByUrl('/candidate-details')
         }
