@@ -37,6 +37,7 @@ const credentials = {
 	ca: ca
 };
 
+http.createServer(app).listen(80);
 var server = https.createServer(credentials, app);
 
 
