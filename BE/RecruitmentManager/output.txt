@@ -1,0 +1,4 @@
+
+> recruitmentmanager@0.0.0 start /home/ubuntu/RecruitmentSoftware/BE/RecruitmentManager
+> node ./bin/www
+
