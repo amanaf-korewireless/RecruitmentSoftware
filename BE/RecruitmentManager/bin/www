@@ -26,9 +26,9 @@ app.set('port', port);
 
 //var server = http.createServer(app);
 var options = {
-  ca: fs.readFileSync("/home/ubuntu/testHttps/letsencrypt/live/www.freshers.gadgeon.com/fullchain.pem"),
+  ca: fs.readFileSync("/home/ubuntu/testHttps/letsencrypt/live/www.freshers.gadgeon.com/cert.pem"),
   key: fs.readFileSync("/home/ubuntu/testHttps/letsencrypt/live/www.freshers.gadgeon.com/privkey.pem"),
-  cert: fs.readFileSync("/home/ubuntu/testHttps/letsencrypt/live/www.freshers.gadgeon.com/cert.pem")
+  cert: fs.readFileSync("/home/ubuntu/testHttps/letsencrypt/live/www.freshers.gadgeon.com/fullchain.pem")
 }
 
 var server = https.createServer(options, app);
