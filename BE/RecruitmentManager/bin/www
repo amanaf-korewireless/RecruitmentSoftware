@@ -37,14 +37,13 @@ const credentials = {
 	ca: ca
 };
 
-http.createServer(app);
-// set up a route to redirect http to https
-http.get('*', function(req, res) {  
-  res.redirect('https://' + req.headers.host + req.url);
-});
-http.listen(80);
 var server = https.createServer(credentials, app);
 
+
+http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
 
 /**
  * Listen on provided port, on all network interfaces.
