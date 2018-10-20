@@ -104,4 +104,13 @@ export class TableListComponent implements OnInit {
       return 'blue'
     }
   }
+  expand = 'expand_more'
+  rotate(){
+    if(this.expand == 'expand_less'){
+      this.expand = 'expand_more'
+    }
+    else{
+      this.expand = 'expand_less'
+    }
+  }
 }

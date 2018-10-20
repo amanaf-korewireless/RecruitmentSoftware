@@ -1,9 +1,12 @@
 <div class="topnav" id="myTopnav">
     <a class="active">
-        Gadgeon
+        <img src="../../../assets/img/image-gad.png" height="50px">
     </a>
-    <a class="" (click)="logout()" ><label for=""style="cursor: pointer;">Logout</label></a>
+    <a style="float: right!important;" (click)="logout()" >
+        <i class="material-icons">person</i>
+        <label for=""style="cursor: pointer;">Logout</label>
+    </a>
     <a class="icon" (click)="myFunction()">
-        <i class="material-icons">format_list</i>
+        <i class="material-icons click-icon">{{icon}}</i>
     </a>
 </div>

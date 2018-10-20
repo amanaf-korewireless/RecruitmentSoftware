@@ -10,7 +10,7 @@ export class AuthenticationService implements CanActivate {
     constructor(private http: HttpClient) { }
 
     login(username: string, password: string) {
-        let url = "http://freshers.gadgeon.com/login"
+        let url = AppConfig.endpoints["serverIp"]+"/login"
         let data = {
             "email": username,
             "password": password

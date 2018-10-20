@@ -43,7 +43,10 @@
         position: relative;
     }
 }
+.gad-table{
+    
 
+}
 .gadtablerow{
     cursor: pointer;
     font-size: 115%;
@@ -64,9 +67,10 @@
 }
 .gadheader{
     background: #23618E!important;
-    label{
-        background-position-y: 20%!important;
-    }
+    
+}
+.gadheaderlabel{
+vertical-align: middle;
 }
 .progress{
     border-radius: 0px;

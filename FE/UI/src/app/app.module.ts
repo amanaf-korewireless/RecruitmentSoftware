@@ -19,6 +19,9 @@ import { DatePipe } from '@angular/common'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CircularProgressComponent } from './circular-progress/circular-progress.component'
 import { AuthenticationService } from './services/authentication.service';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularFire2';
+import { environment } from 'environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { AuthenticationService } from './services/authentication.service';
     JsonpModule,
     ComponentsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireAuthModule,AngularFireModule.initializeApp(environment.firbase)
   ],
   providers: [ApiServices, FilterUtils, { provide: LocationStrategy, useClass: HashLocationStrategy },DatePipe,AuthenticationService],
   bootstrap: [AppComponent]

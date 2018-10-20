@@ -12,7 +12,6 @@
                 <button type="button" class="btn btn-sm gadbutton" data-toggle="collapse" data-target="#searchprod">Search
                     Candidate</button>
             </div>
-            <br>
             <div class="section table-section">
                 <div class="row">
                     <div id="searchprod" class="collapse searchbar2">
@@ -29,15 +28,14 @@
                         </div>
                     </div>
                 </div>
-
-                <section>
+                <section class="gad-table">
                     <div class="row gadtablerow gadheader">
                         <div class="col-md-1">
                             <label for="">Sl.No</label>
                         </div>
                         <div class="col-md-2">
                             <label for="">Name</label>
-                            
+
                         </div>
                         <div class="col-md-2">
                             <label for="">College</label>
@@ -55,9 +53,9 @@
                             <label for="">Batch</label>
                         </div>
                     </div>
+                    <app-candidate-element *ngFor="let item of candidateList;let i=index" [candElement]="item" [slno]="i">
+                    </app-candidate-element>
                 </section>
-                <app-candidate-element *ngFor="let item of candidateList;let i=index" [candElement]="item" [slno]="i">
-                </app-candidate-element>
             </div>
 
         </div>
@@ -67,7 +65,7 @@
             <div class="card">
                 <div class="card-header card-header-danger">
                     <h4 class="card-title" style="color:white">Gadgeon Recruitment 2018</h4>
-                    <label class="card-title" style="color:white; font-size: 120%;color: silver">Candidate Detail</label>
+                    <p class="card-title" style="color:white; font-size: 120%;color: silver">Candidate Detail</p>
                 </div>
                 <div class="card-body">
                     <div class="container">
@@ -76,84 +74,86 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        Name
+                                        <label for="">
+                                            Name
+                                        </label>
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="Name">{{candidateDetail.name}}</label>
+                                        <p for="Name">{{candidateDetail.name}}</p>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        Email
+                                        <label for="">Email</label>
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="email">{{candidateDetail.email}}</label>
+                                        <p for="email">{{candidateDetail.email}}</p>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        College
+                                        <label for="">College</label>
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="College">{{candidateDetail.college}}</label>
+                                        <p for="College">{{candidateDetail.college}}</p>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        Batch
+                                        <label for="">Batch</label>
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="batch">{{candidateDetail.batch}}</label>
+                                        <p for="batch">{{candidateDetail.batch}}</p>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4" data-toggle="collapse" href="#collapseExample" role="button"
-                                        aria-expanded="false" aria-controls="collapseExample">
-                                        Status
+                                        aria-expanded="false" aria-controls="collapseExample" (click)="rotate()">
+                                        <label class="click-icon">Status <i class="material-icons middle-icon">{{expand}}</i></label>
+
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="overallstatus">Pending</label>
-                                        <br>
+                                        <p for="overallstatus">Pending</p>
                                         <br>
                                         <div class="row">
-                                            <div class="collapse" id="collapseExample">
+                                            <div class="collapse tab" id="collapseExample">
                                                 <div class="row">
                                                     <div class="col-xs-4">
-                                                        Written Test
+                                                        <label for="">Written Test</label>
                                                     </div>
                                                     <div class="col-xs-6">
-                                                        <label for="status" [ngStyle]="{color: getColorW()}">{{candidateDetail.writingTestResult}}</label>
+                                                        <p for="status" [ngStyle]="{color: getColorW()}">{{candidateDetail.writingTestResult}}</p>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-xs-4">
-                                                        Tehnical Round1
+                                                        <label for="">Tehnical Round1</label>
                                                     </div>
                                                     <div class="col-xs-6">
-                                                        <label for="status" [ngStyle]="{color: getColorT1()}">{{candidateDetail.technicalRound1Result}}</label>
+                                                        <p for="status" [ngStyle]="{color: getColorT1()}">{{candidateDetail.technicalRound1Result}}</p>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-xs-4">
-                                                        Tehnical Round2
+                                                        <label for="">Tehnical Round2</label>
                                                     </div>
                                                     <div class="col-xs-6">
-                                                        <label for="status" [ngStyle]="{color: getColorT2()}">{{candidateDetail.technicalRound2Result}}</label>
+                                                        <p for="status" [ngStyle]="{color: getColorT2()}">{{candidateDetail.technicalRound2Result}}</p>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-xs-4">
-                                                        HR Round
+                                                        <label for="">HR Round</label>
                                                     </div>
                                                     <div class="col-xs-6">
-                                                        <label for="status" [ngStyle]="{color: getColorH()}">{{candidateDetail.hrRound2Result}}</label>
+                                                        <p for="status" [ngStyle]="{color: getColorH()}">{{candidateDetail.hrRound2Result}}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -164,10 +164,10 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        Date
+                                        <label for="">Date</label>
                                     </div>
                                     <div class="col-xs-6">
-                                        <label for="batch">{{candidateDetail.registrationDate}}</label>
+                                        <p for="batch">{{candidateDetail.registrationDate}}</p>
                                     </div>
                                 </div>
                             </div>

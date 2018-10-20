@@ -12,11 +12,11 @@ export class ApiServices {
     return this.http.get(this.serverIp+"/adminprovider");
   }
   getCandidateDetail() {
-    let url = this.serverIp+'/result/'+localStorage.getItem("username")+'/'+localStorage.getItem("gadLoginTocken")
+    let url = this.serverIp+'/student/result/'+localStorage.getItem("username")+'/'+localStorage.getItem("gadLoginTocken")
     return this.http.get(url);
   }
   updateStatus(data){
-    let url = this.serverIp;
+    let url = this.serverIp+'/student';
     console.log("data",data)
     return this.http.put(url,data,{
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -39,7 +39,7 @@ export class ApiServices {
     {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.serverIp, userData, {
+    return this.http.post(this.serverIp+'/student', userData, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       observe: 'response'
     });

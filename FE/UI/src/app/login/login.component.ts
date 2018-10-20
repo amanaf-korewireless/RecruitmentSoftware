@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
 import {  AuthenticationService } from '../services/authentication.service';
+import { Observable } from 'rxjs';
+import {AngularFireModule} from 'angularFire2'
 
+@Injectable()
 @Component({
     moduleId: module.id,
     selector: 'app-login',
@@ -16,6 +20,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
+        private afAuth: AngularFireAuth,
         private authenticationService: AuthenticationService) {
         if (localStorage.getItem('userLogin') == 'true') {
             this.router.navigateByUrl('/candidate-details')
@@ -40,8 +45,14 @@ export class LoginComponent implements OnInit {
             return true;
         }
     }
+    authProvider;
+    IsInvalidUser =false;
     message;
+    
     login() {
+       // this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider()).then(success =>{
+            //this.router.naviga
+       //});
         if (this.model.username == "hr@gadgeon.com" && this.model.password == "Hr@Gad#2018") {
             localStorage.setItem("adminLoginGad", "true");
             localStorage.setItem('userLogin', 'true');
@@ -68,8 +79,8 @@ export class LoginComponent implements OnInit {
                     }
                 },
                 error => {
+                    this.IsInvalidUser = true;
                     this.message = "Invalid username or password"
-                    alert(this.message)
                 });
         }
     }

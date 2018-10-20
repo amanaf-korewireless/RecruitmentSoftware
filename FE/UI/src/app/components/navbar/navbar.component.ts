@@ -79,12 +79,20 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
+    icon = 'menu'
     myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
             x.className += " responsive";
         } else {
             x.className = "topnav";
+        }
+
+        if(this.icon == 'menu'){
+            this.icon = 'close'
+        }
+        else{
+            this.icon = 'menu'
         }
         
     }
