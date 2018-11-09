@@ -9,7 +9,7 @@ export class ApiServices {
   constructor(private http: HttpClient) { }
   private serverIp = AppConfig.endpoints["serverIp"];
   getCandidateList() {
-    return this.http.get(this.serverIp+"/adminprovider");
+    return this.http.get(this.serverIp+"/student/adminprovider");
   }
   getCandidateDetail() {
     let url = this.serverIp+'/student/result/'+localStorage.getItem("username")+'/'+localStorage.getItem("gadLoginTocken")

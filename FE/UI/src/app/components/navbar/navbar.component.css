@@ -4,7 +4,7 @@ body {
 }
 
 .topnav {
-  overflow: hidden;
+  overflow: auto;
   background-color: #074D80;
 }
 

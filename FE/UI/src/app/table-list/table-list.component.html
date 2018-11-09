@@ -1,65 +1,54 @@
 <div class="main-panel">
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
-    <div *ngIf="IsadminLogin;else candidate">
-        <div class="main-content gadgeon-content">
-            <div class="row">
-                <div class="col-md-9">
-                    <h5>Candidate List (Gadgeon Recruitment 2018)</h5>
-                </div>
-            </div>
-            <div class="row gadsearchrow">
-                <button type="button" class="btn btn-sm gadbutton" data-toggle="collapse" data-target="#searchprod">Search
-                    Candidate</button>
-            </div>
-            <div class="section table-section">
-                <div class="row">
-                    <div id="searchprod" class="collapse searchbar2">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input class="col-md-12" type="search" id="email_s" placeholder="Email">
-                            </div>
-                            <div class="col-md-2">
-                                <input class="col-md-12" type="search" id="name_s" placeholder="Name">
-                            </div>
-                            <div class="col-md-2">
-                                <input class="col-md-12" type="search" id="batch_s" placeholder="Batch">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <section class="gad-table">
-                    <div class="row gadtablerow gadheader">
-                        <div class="col-md-1">
-                            <label for="">Sl.No</label>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="">Name</label>
-
-                        </div>
-                        <div class="col-md-2">
-                            <label for="">College</label>
-                        </div>
-                        <div class="col-md-1">
-                            <label for="">Passout</label>
-                        </div>
-                        <div class="col-md-1">
-                            <label for="">Mobile</label>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="">Email</label>
-                        </div>
-                        <div class="col-md-1">
-                            <label for="">Batch</label>
-                        </div>
-                    </div>
-                    <app-candidate-element *ngFor="let item of candidateList;let i=index" [candElement]="item" [slno]="i">
-                    </app-candidate-element>
-                </section>
-            </div>
-
+        <div style="overflow-x:scroll;margin:1%">
+                <mat-form-field *ngIf="IsadminLogin">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search name, college, mobile no, email, batch">
+                      </mat-form-field>
+                      
+                      <div *ngIf="IsadminLogin;else candidate">
+                        <table mat-table [dataSource]="dataSource" matSort>
+                      
+                         
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let row" (click)="openDialog(row)" > {{row.name}} </td>
+                          </ng-container>
+                
+                          <!-- College Column -->
+                          <ng-container matColumnDef="college">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> College </th>
+                                <td mat-cell *matCellDef="let row" (click)="openDialog(row)"> {{row.college}} </td>
+                              </ng-container>
+                         <!-- Mobile Column -->
+                          <ng-container matColumnDef="mobile">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+                                <td mat-cell *matCellDef="let row" (click)="openDialog(row)"> {{row.mobile}} </td>
+                              </ng-container>
+                          <!-- Email Column -->
+                          <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                                <td mat-cell *matCellDef="let row" (click)="openDialog(row)"> {{row.email}} </td>
+                              </ng-container>
+                         <!-- Passout Column -->
+                          <ng-container matColumnDef="passout">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Passout </th>
+                                <td mat-cell *matCellDef="let row" (click)="openDialog(row)"> {{row.passout}} </td>
+                              </ng-container>
+                        <!-- Batch Column -->
+                        <ng-container matColumnDef="batch">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Batch </th>
+                                <td mat-cell *matCellDef="let row" (click)="openDialog(row)"> {{row.batch}} </td>
+                            </ng-container>
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                          </tr>
+                        </table>
+                      
+                        <mat-paginator [pageSizeOptions]="[7, 10, 25, 100]"></mat-paginator>
+                      </div>
         </div>
-    </div>
     <ng-template #candidate>
         <div class="main-content">
             <div class="card">

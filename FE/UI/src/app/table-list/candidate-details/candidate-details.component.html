@@ -1,0 +1,83 @@
+<div style=" border-radius: 20px; background-color: orange; text-align: center; ">
+  <h1 mat-dialog-title> {{data.name}}</h1>
+</div>
+<div mat-dialog-content>
+   <mat-list>
+     <table>
+       <tr>
+         <td>
+            <mat-list-item><i class="material-icons">
+                email
+                </i>    {{data.email}}
+             </mat-list-item>
+         </td>
+         <td>
+            <mat-list-item><i class="material-icons">
+                phone
+                </i>   {{data.mobile}}
+             </mat-list-item>
+         </td>
+       </tr>
+       <tr>
+         <td>
+            <mat-list-item><i class="material-icons">
+                assignment
+                </i>   {{data.batch}}
+             </mat-list-item>
+         </td>
+         <td>
+                <mat-list-item><i class="material-icons">
+                    school
+                    </i>   {{data.college}}</mat-list-item>
+        </td>
+         
+      <mat-divider></mat-divider>
+       </tr>
+     </table>
+      
+   </mat-list>
+   <mat-form-field class="update-select-fields">
+     Written Test
+      <mat-select [(value)]="writingTestResult" required>
+        <mat-option value="Pending">Pending</mat-option>
+        <mat-option value="Pass" color="red">Passed</mat-option>
+        <mat-option value="Fail">Failed</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="update-select-fields">
+        Technical Round 1
+         <mat-select [(value)]="technicalRound1Result" required>
+           <mat-option value="Pending">Pending</mat-option>
+           <mat-option value="Pass">Passed</mat-option>
+           <mat-option value="Fail">Failed</mat-option>
+         </mat-select>
+       </mat-form-field>
+       <mat-form-field class="update-select-fields" required>
+          Technical Round 2
+           <mat-select [(value)]="technicalRound2Result">
+             <mat-option value="Pending">Pending</mat-option>
+             <mat-option value="Pass">Passed</mat-option>
+             <mat-option value="Fail">Failed</mat-option>
+           </mat-select>
+         </mat-form-field>
+         <mat-form-field class="update-select-fields" required>
+            HR Round
+             <mat-select [(value)]="hrRound2Result">
+               <mat-option value="Pending">Pending</mat-option>
+               <mat-option value="Pass">Passed</mat-option>
+               <mat-option value="Fail">Failed</mat-option>
+             </mat-select>
+           </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+   <button mat-raised-button style="background-color: #d42f2f;" (click)="onNoClick()">Cancel</button>
+   <button mat-raised-button style="background-color: green;" (click)="updateStatus()">Update Staus</button>
+   
+</div>
+
+<div style="color: green;padding-top: 3%;font-size: medium;text-align: center;">
+  {{successMessage}}
+</div>
+<div style="color: red;padding-top: 3%;font-size: medium;text-align: center;">
+  {{errorMessage}}
+</div>
