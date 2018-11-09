@@ -6,3 +6,17 @@
 a[aria-expanded='false'] > .expand_caret {
     transform: scale(1.6) rotate(-90deg);
 }
+table {
+    width: 100%;
+    font-family: sans-serif!important;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-row:hover {
+    background-color: orange;
+    cursor: pointer;
+  }

@@ -1,0 +1,130 @@
+.login-card {
+    min-width: 300px;
+    min-height: 430px;
+    width:300px;
+    background-color: white;
+   
+  }
+  @media screen and (max-width: 800px) {
+    .login-card{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width:100%;
+        height: 100vh;
+        overflow:auto;
+        min-width: 100%;
+        min-height: 100vh;
+    }
+    
+    .login-container{
+        padding-right:4%;
+    }
+    .md-card-actions {
+        float:right;
+        padding-right: 4%;    
+    }
+}
+
+@media screen and (min-width: 800px) {
+.login-card {
+    width:31%;
+    min-width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:0.1px solid rgba(0, 0, 0, 0.05);
+    
+}
+
+
+}
+
+.login-header {
+    min-height: 65px;
+    padding-top:2%; 
+}
+.login-content {
+    min-height: 160px;
+    margin-top:5%;
+}
+.login-fields {
+    margin-top: 5%;
+}
+
+.main-div-header {
+  margin-top: 9%;
+}
+
+  
+.login-container{
+    margin-left: 2%;
+    margin-right:2%;
+    margin-top:2%;
+   
+
+}
+
+.login-container > *{
+    width:100%;
+}
+.login-right-align {
+    text-align: right;
+}
+  
+input.login-right-align::-webkit-outer-spin-button,
+input.login-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+  
+input.login-right-align {
+    -moz-appearance: textfield;
+}
+.md-card-actions {
+    float:right;
+    margin-right: 2%;
+    
+}
+.mat-card-image-size {
+    max-width: 121%;
+    margin-left: auto;
+}
+.build-details{
+    position: absolute;
+    left:0;
+    bottom:0;
+}
+.logo{
+    margin-top:4%;
+   margin:0 auto;
+
+  
+}
+.mat-card-header-text{
+    padding-top:200px;
+    margin:0;
+}
+ .login-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .login-full-width {
+    width: 100%;
+  }
+  .btn-signin {
+    background-color: #125688;
+    color: white;
+    width: 97%;
+    margin-left: 4%;
+  }
+  .btn-register {
+    background-color: #f48636;
+    color: white;
+    width: 97%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+  
